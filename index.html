@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4HUMANS WORKS LLC - Business Solutions</title>
+    <meta name="description" content="4HUMANS WORKS LLC is a business solutions company focused on delivering value through innovative approaches and professional services.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-dark: #0f172a;
+            --white: #ffffff;
+            --border-light: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(100, 116, 139, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(45deg, #2563eb 25%, transparent 25%),
+                linear-gradient(-45deg, #2563eb 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #64748b 75%),
+                linear-gradient(-45deg, transparent 75%, #64748b 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-highlight {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-left: 4px solid var(--primary-color);
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 5rem 5%;
+            background: var(--bg-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .value-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Custom icons for better visual appeal */
+        .icon-integrity::before { content: "🤝"; font-size: 2.5rem; }
+        .icon-excellence::before { content: "⭐"; font-size: 2.5rem; }
+        .icon-innovation::before { content: "💡"; font-size: 2.5rem; }
+        .icon-collaboration::before { content: "👥"; font-size: 2.5rem; }
+        .icon-reliability::before { content: "🛡️"; font-size: 2.5rem; }
+        .icon-growth::before { content: "📈"; font-size: 2.5rem; }
+
+        .value-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .value-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .contact-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            nav {
+                padding: 1rem 3%;
+            }
+
+            .about,
+            .values,
+            .contact {
+                padding: 3rem 3%;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Four interconnected circles representing ambiguous "4" or "for" humans -->
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Main interconnected design -->
+                        <circle cx="30" cy="30" r="12" fill="url(#logoGradient)" opacity="0.9"/>
+                        <circle cx="70" cy="30" r="12" fill="url(#logoGradient)" opacity="0.8"/>
+                        <circle cx="30" cy="70" r="12" fill="url(#logoGradient)" opacity="0.7"/>
+                        <circle cx="70" cy="70" r="12" fill="url(#logoGradient)" opacity="0.6"/>
+                        <!-- Connecting lines to show unity -->
+                        <line x1="30" y1="30" x2="70" y2="30" stroke="url(#logoGradient)" stroke-width="2" opacity="0.4"/>
+                        <line x1="30" y1="30" x2="30" y2="70" stroke="url(#logoGradient)" stroke-width="2" opacity="0.4"/>
+                        <line x1="70" y1="30" x2="70" y2="70" stroke="url(#logoGradient)" stroke-width="2" opacity="0.4"/>
+                        <line x1="30" y1="70" x2="70" y2="70" stroke="url(#logoGradient)" stroke-width="2" opacity="0.4"/>
+                        <!-- Center connection point -->
+                        <circle cx="50" cy="50" r="4" fill="url(#logoGradient)"/>
+                        <line x1="42" y1="42" x2="58" y2="58" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.5"/>
+                        <line x1="58" y1="42" x2="42" y2="58" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.5"/>
+                    </svg>
+                </div>
+                <span>4HUMANS WORKS LLC</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#values">Values</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <svg class="hero-logo" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <!-- Larger version of the logo with glow effect -->
+                <circle cx="45" cy="45" r="18" fill="url(#heroLogoGradient)" opacity="0.9" filter="url(#glow)"/>
+                <circle cx="105" cy="45" r="18" fill="url(#heroLogoGradient)" opacity="0.8" filter="url(#glow)"/>
+                <circle cx="45" cy="105" r="18" fill="url(#heroLogoGradient)" opacity="0.7" filter="url(#glow)"/>
+                <circle cx="105" cy="105" r="18" fill="url(#heroLogoGradient)" opacity="0.6" filter="url(#glow)"/>
+                <!-- Enhanced connecting elements -->
+                <line x1="45" y1="45" x2="105" y2="45" stroke="url(#heroLogoGradient)" stroke-width="3" opacity="0.4"/>
+                <line x1="45" y1="45" x2="45" y2="105" stroke="url(#heroLogoGradient)" stroke-width="3" opacity="0.4"/>
+                <line x1="105" y1="45" x2="105" y2="105" stroke="url(#heroLogoGradient)" stroke-width="3" opacity="0.4"/>
+                <line x1="45" y1="105" x2="105" y2="105" stroke="url(#heroLogoGradient)" stroke-width="3" opacity="0.4"/>
+                <!-- Central hub -->
+                <circle cx="75" cy="75" r="8" fill="url(#heroLogoGradient)" filter="url(#glow)"/>
+                <line x1="63" y1="63" x2="87" y2="87" stroke="url(#heroLogoGradient)" stroke-width="2" opacity="0.6"/>
+                <line x1="87" y1="63" x2="63" y2="87" stroke="url(#heroLogoGradient)" stroke-width="2" opacity="0.6"/>
+                <!-- Outer ring for completeness -->
+                <circle cx="75" cy="75" r="65" fill="none" stroke="url(#heroLogoGradient)" stroke-width="1" opacity="0.2"/>
+            </svg>
+            <h1>4HUMANS WORKS LLC</h1>
+            <p class="hero-subtitle">A business solutions company committed to delivering value through professional services and innovative approaches. We operate with precision, integrity, and a deep understanding of complex business environments.</p>
+            <div class="hero-highlight">
+                Established for comprehensive business solutions and strategic partnerships
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Our Company</h2>
+                <p>4HUMANS WORKS LLC operates as a business solutions company, providing professional services across various industries and sectors.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>To deliver comprehensive business solutions that create value for our clients and partners through professional excellence and innovative approaches.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Approach</h3>
+                    <p>We focus on understanding the unique needs of each engagement and developing tailored solutions that align with business objectives and industry standards.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Commitment</h3>
+                    <p>We are committed to maintaining the highest standards of professionalism, integrity, and quality in all our business operations and client relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide our business operations and client relationships.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <span class="icon-integrity"></span>
+                    <h3>Integrity</h3>
+                    <p>Conducting business with honesty and transparency</p>
+                </div>
+                <div class="value-item">
+                    <span class="icon-excellence"></span>
+                    <h3>Excellence</h3>
+                    <p>Maintaining high standards in all our endeavors</p>
+                </div>
+                <div class="value-item">
+                    <span class="icon-innovation"></span>
+                    <h3>Innovation</h3>
+                    <p>Embracing new ideas and creative solutions</p>
+                </div>
+                <div class="value-item">
+                    <span class="icon-collaboration"></span>
+                    <h3>Collaboration</h3>
+                    <p>Working together to achieve common goals</p>
+                </div>
+                <div class="value-item">
+                    <span class="icon-reliability"></span>
+                    <h3>Reliability</h3>
+                    <p>Delivering consistent and dependable results</p>
+                </div>
+                <div class="value-item">
+                    <span class="icon-growth"></span>
+                    <h3>Growth</h3>
+                    <p>Continuously improving and expanding capabilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Information</h2>
+                <p>For business inquiries and professional communications.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Business Inquiries</h3>
+                    <p><i class="fas fa-envelope"></i> info@4humansllc.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> United States</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Business Hours</h3>
+                    <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM EST</p>
+                    <p><i class="fas fa-calendar"></i> Weekend: By appointment only</p>
+                    <p><i class="fas fa-info-circle"></i> Response time: 1-2 business days</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Legal Information</h3>
+                    <p><i class="fas fa-building"></i> 4HUMANS WORKS LLC</p>
+                    <p><i class="fas fa-file-alt"></i> Limited Liability Company</p>
+                    <p><i class="fas fa-gavel"></i> Registered in United States</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>4HUMANS WORKS LLC</h3>
+                <p>A professional business solutions company committed to delivering value through excellence and innovation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About</a><br>
+                <a href="#values">Values</a><br>
+                <a href="#contact">Contact</a><br>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@4humansllc.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Location: United States</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 4HUMANS WORKS LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
